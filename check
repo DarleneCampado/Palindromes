@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script>
+function check() {
+    var x = document.getElementById("pal").value;
+    chars = x.split('').reverse().join('').toLowerCase()
+    reversed = chars.replace(/\s+/g, '')
+    orig = x.split('').join('').toLowerCase().replace(/\s+/g, '')
+    if (orig.length > 2 && reversed == orig){
+
+        if (orig.search(/[^a-z\s]/) != -1){
+        document.getElementById("ans").innerHTML = "Numbers can't be palindromes."
+        }
+        else{
+        document.getElementById("ans").innerHTML = "Yes, its a palindrome!"  
+        }
+    }
+    else {
+        document.getElementById("ans").innerHTML = "Sorry! Its not a palindrome."  
+    }
+}
+</script>
+<head>
+</head>
+<body>
+<p>It is a palindrome?</p>
+Enter a phrase to check:<br> <input id="pal"> <br>
+<button onclick="check()">Check it</button>
+<p id=ans>Is it?</p>
+</body>
+</html>
